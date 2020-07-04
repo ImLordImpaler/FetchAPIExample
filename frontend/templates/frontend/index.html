@@ -1,0 +1,56 @@
+{% extends 'frontend/base.html'%}
+
+
+{% block content%}
+    <div class = 'container' style=" margin-top:50px;">
+        <div class="row">
+                <div class="col-sm-12">
+                <form>
+                        <div class="input-group mb-3">
+                              <input type="text" class="form-control" placeholder="Enter a new Task?"  aria-describedby="basic-addon2">
+                              <div class="input-group-append">
+                                <a class="input-group-text btn btn-info" id="basic-addon2">Submit?</a>
+                              </div>
+                        </div>
+                </form>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+
+                    <table id = 'taskList'></table>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block script%}
+        <script>
+
+                url = 'http://127.0.0.1:8000/api/task-list/'
+                fetch(url)
+
+                .then(response => response.json())
+                .then(function(data){
+                    console.log('data',data);
+
+                    var list = data;
+                    for (var i in list){
+
+                        for (var j in list[i]){
+                            console.log(j.id);
+                        }
+                  }
+
+                });
+
+
+
+
+
+
+
+    </script>
+{% endblock %}

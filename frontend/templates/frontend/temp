@@ -1,0 +1,18 @@
+  url = 'http://127.0.0.1:8000/api/task-list/'
+            fetch(url)
+
+            .then(response => response.json())
+            .then(function(data){
+                console.log('data',data);
+
+                var list = data;
+                for (var i in list){
+                 let li = '<tr><th>Task</th></tr>';
+
+              }
+                document.getElementById("tasklist").innerHTML = li;
+            });
+
+            let li = '<tr><td> i</td></tr>'
+                      var ele = document.getElementById('taskList');
+                        ele.innerHTML += li;
